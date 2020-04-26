@@ -60,7 +60,7 @@ services:
       - backend
     volumes:
       - ${PROJECT_ROOT}/:/var/www/html/
-    container_name: php
+    container_name: lamp-php
   apache:
     build:
       context: './apache/'
@@ -76,7 +76,7 @@ services:
       - "80:80"
     volumes:
       - ${PROJECT_ROOT}/:/var/www/html/
-    container_name: apache
+    container_name: lamp-apache
   mysql:
     image: mysql:${MYSQL_VERSION:-latest}
     restart: always
@@ -91,7 +91,7 @@ services:
       MYSQL_DATABASE: "${DB_NAME}"
       MYSQL_USER: "${DB_USERNAME}"
       MYSQL_PASSWORD: "${DB_PASSWORD}"
-    container_name: mysql
+    container_name: lamp-mysql
 networks:
   frontend:
   backend:
@@ -170,9 +170,18 @@ Volumes are a very powerful construct of the Docker world and we're only scratch
 
 ### Demonstration of docker-compose up!
 
-```
-$ docker-compose up
+Clone or download the repository. 
 
+If it is the first time you run the project:
+```
+docker-compose up --build
+```
+If you have already built the images:
+```
+docker-compose up
+```
+
+```
 <... some details omitted ...>
 php_1     | [16-Jul-2018 02:08:11] NOTICE: fpm is running, pid 1
 php_1     | [16-Jul-2018 02:08:11] NOTICE: ready to handle connections
