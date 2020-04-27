@@ -1,8 +1,7 @@
-Containerize This: PHP/Apache/MySQL
-===================================
+Apache/MySQL/PHP Docker Containers
+==================================
 
 ### Intro
-Continuing with the Containerize This! series, we're looking at common web application technologies and how they can be used within Docker containers effectively. PHP/Apache/MySQL have a very large market share on content management systems and web applications on the internet, and with so many developers using these technologies, there is a lot of interest to modernize the way that they use them from from local development all the way to production. Today we'll take a look at several ways to containerize and link PHP, Apache, and MySQL together while demonstrating some tips, tricks, and best-practices that will help you take a modern approach when developing and deploying your PHP applications!
 
 There are 5 simple files for this demo that you can clone from https://github.com/mzazon/php-apache-mysql or simply copy and paste from this post to replicate the following folder structure. Please note that some Docker and security principals have been skipped here for simplicity and demonstration purposes. Namely PHP using root credentials, hardcoded/weak MySQL password, lack of SSL, to name a few! Do not run this code in production! :-)
 
@@ -78,7 +77,7 @@ services:
       - ${PROJECT_ROOT}/:/var/www/html/
     container_name: lamp-apache
   mysql:
-    image: mysql:${MYSQL_VERSION:-latest}
+    image: hypriot/rpi-mysql:latest
     restart: always
     ports:
       - "3306:3306"
@@ -98,6 +97,8 @@ networks:
 volumes:
     data:
 ```
+
+The mysql image has been changed from the official one because the official mysql does not include a version compatible with the ARM-based Raspberry Pi's Raspbian Stretch.
 
 ### Decouple dependencies, run one process per container (PID 1)
 Containers at the core are simply process encapsulation within a shared Linux kernel, to allow for many processes to run inside of their own spaces without interfering or interacting unless we explicitly tell them they can. Thus, it is a long-running best practice to run your primary service within a container as PID 1. This means that no other process should be running inside of your containers. It allows containers to maintain a native linux process lifecycle, respect linux process signals, allow for greater security, and will make your life easier when you schedule these containers on orchestrators such as Docker Swarm or Kubernetes in production.
