@@ -1,0 +1,681 @@
+/* ----- CSS custom properties (variables) ----- */
+
+:root {	
+	--color-green: #66b200;
+	--color-red: #b3041a;
+	--color-yellow: #fcc015;
+	--color-navy-blue: #002e5d;
+	--color-royal-blue: #0057b8;
+	
+	--button-padding: 1.4rem;
+	--button-font-size: 1.6rem;
+	--button-border-radius: 4px;
+	
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+}
+
+/* ----- base fonts ----- */
+
+html {
+	font-size: 62.5%; 	/* 62.5% of 16px = 10px */
+}
+
+body {	
+    font-family: 'Roboto', sans-serif;
+	font-size: 1.6rem;
+	font-weight: var(--font-weight-normal);
+	margin: 0;
+	
+	--background-color: gray;
+	background-color: var(--background-color);
+}
+
+@media screen and (max-width: 400px) {
+	body {	
+		font-family: 'Roboto Condensed', sans-serif;	
+	}
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: 1.15;
+}
+
+/* ----- login.php and profile.php ----- */
+
+.logon-content {
+    background-color: #eee; 
+    margin: 40px auto 40px auto; 
+    border: 1px solid #888;
+    width: 80%; 
+	max-width: 400px;
+	border-radius:4px;
+}
+
+.logon-content .container {
+    padding: 8px;
+}
+
+.logon-content input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.logon-content button {
+    background-color: var(--color-green);
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: var(--button-padding);
+	font-size: var(--button-font-size);
+	font-weight: var(--font-weight-bold);
+	border-radius: var(--button-border-radius);
+}
+
+.logon-content button:hover {
+    opacity: 0.8;
+}
+
+.logon-content .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* ----- borders ----- */
+
+	.border { border: 1px solid black; border-collapse: collapse; margin-top: 1vh;}
+	.border-td td { border: 1px solid black; border-collapse: collapse; padding: 0.5vh 2.5vw; }
+	.border-td .selected td { border: 3px solid black; background-color: #eee; font-weight:var(--font-weight-bold); padding: 0; }
+	.border-td .selected td button { cursor: auto; }
+	.border-td .not-selected td button { opacity: 0.8; border-radius: var(--button-border-radius);}
+	.left-right { border-left: 1px solid black; border-right: 1px solid black; }
+
+/* ----- general purpose ----- */
+
+.center { 
+	display: block; 
+	margin: auto; 
+}
+
+.green {
+	background-color: var(--color-green);
+	color: white;
+}
+.green:active {
+	background-color: white;
+	color: var(--color-green);
+}
+
+.yellow, .DBUpdate button.yellow, .PopupTable button.yellow, .logon-content button.yellow {
+	background-color: var(--color-yellow);
+	color: black;
+}
+.yellow:active, .DBUpdate button.yellow:active, .PopupTable button.yellow:active, .logon-content button.yellow:active {
+	background-color: black;
+	color: var(--color-yellow);
+}
+
+.red, .DBUpdate button.red {
+	background-color: var(--color-red);
+	color: white;
+}
+.red:active, .DBUpdate button.red:active {
+	background-color: white;
+	color: var(--color-red);
+}
+
+.thumbnail {
+	width: 10vw;
+	height: auto;
+}
+
+.houseID {
+	position: fixed;
+	right: 0.5vw;
+	top: 50px;
+	background-color: #eee;
+	color: var(--color-royal-blue);
+	border: 1px solid var(--color-royal-blue);
+	padding: 0.5vw;
+	font-size: 1vw;
+	text-align: center;
+}
+
+.info { background-color:white;  }
+.info-reverse { background-color: var(--color-royal-blue); color:white; border: 1px solid var(--color-royal-blue); }
+.info button,a {
+	border: none;
+	cursor: pointer;
+	width: 100%;
+    padding: var(--button-padding);
+	font-size: var(--button-font-size);
+	font-weight: var(--font-weight-bold);
+	border-radius: var(--button-border-radius);
+	text-decoration: none;
+}
+.info button:active,a:active {
+		color: black !important;
+		background-color: white !important;
+	}
+
+.content {
+	border-radius: 8px;
+}
+.content .container {
+	padding: 0.5vh 1vw 1vh 1vw;
+	margin-bottom: 2%;
+}
+
+.section-heading {
+	color: var(--color-royal-blue);
+	font-weight: var(--font-weight-bold);
+}
+
+.details { 
+	font-size: 12px; 
+	font-style: italic; 
+}
+
+/* ----- text alignment ----- */
+
+.vat { vertical-align:top; }
+.vat td { vertical-align:top; }
+.left-text { text-align: left; }
+.right-text { text-align: right; }
+.center-text { text-align: center; }
+
+.clearfix {
+    overflow: auto;
+}
+
+/* ----- responsive optional elements ----- */
+
+@media screen and (max-width: 400px) {
+  .optional-400 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .optional-500 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .optional-800 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .optional-1024 {
+    display: none;
+  }
+}
+
+/* ----- close-able message box ----- */
+
+div.closebox {
+  padding: 2vh 2vw;
+  background-color: #eee;
+  margin: 2vh 0;
+}	
+
+button.close, .info button.close {
+  float: right;
+  font-size: 30px;
+  color: gray;
+  background: #ddd;
+  padding: 0.5vh 1vw 0.5vh 1vw;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  margin: -2vh -2vw 2vh 2vw;
+  border: 0;
+}
+
+button.close:hover,
+button.close:focus {
+  color: #eee;
+  background-color: red;
+}
+
+#WeatherAlertContainer {
+	margin: 0 auto 0 auto; 
+	padding: 0 12px 2px 12px;
+	background-color: #fefefe;
+	width: 90%;
+	max-width: 400px;
+}
+#WeatherAlertContainer a {
+	display: inline-block;
+	width: 90%;
+	margin: 0 auto 0 auto;
+	text-align: center;
+	font-size: 20px;
+}
+#WeatherAlertContainer p {
+	color:var(--color-red);
+}
+
+/* ----- Background for the DB Update forms ----- */
+
+.DBUpdate {
+ 	position: absolute; /* work around iOS 11 input positioning bug */
+    z-index: 1010; /* Sit on top */
+    right: 10px;
+    top: 40px;
+    width: 450px;
+    overflow: auto; 		/* Enable scroll if needed */
+    background-color: rgb(0,0,0); 		/* Fallback color */
+    background-color: rgba(0,0,0,0.5); 	/* Black w/ opacity */
+	box-shadow: 8px 8px 8px rgba(0,0,0,0.2);
+	font-size: 12px;
+	border-radius:16px;
+}
+
+/* ----- DB Update form ----- */
+
+.DBUpdate .content {
+    background-color: #fefefe;
+    margin: 8% auto 8% auto;
+    border: 1px solid #888;
+    width: 84%;
+	border-radius:8px;
+}
+
+/* ----- Items on the DB Update form ----- */
+
+.DBUpdate .container {
+	padding: 0.5vh 1vw 0.5vh 1vw;
+}
+
+.DBUpdate p {
+	display: block;
+	font-size: 10px;
+	font-weight: var(--font-weight-bold);
+	margin: auto;
+	padding: 1vh 1vw;
+	text-align: center;
+}
+
+.DBUpdate label {
+	display:inline-block;
+	width:100px;
+	font-weight: var(--font-weight-bold);
+}
+
+.DBUpdate input[type=text],select {
+    padding: 6px 10px;
+    margin: 0.5vh 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.DBUpdate button {
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: var(--button-padding);
+	font-size: var(--button-font-size);
+	font-weight: var(--font-weight-bold);
+	border-radius: var(--button-border-radius);
+}
+
+.DBUpdate button:hover {
+    opacity: 0.8;
+}
+
+.DBUpdate img {
+	position: relative; top: 8px;
+	width: 20px;
+	height: 20px;
+	margin: 1px;
+}
+
+/* ----- CompleteListElementContainer.php ----- */
+
+.PopupContent {
+    background-color: #fefefe;
+    margin: 2% auto 2% auto;
+    border: 1px solid black;
+    width: 95%;
+	border-radius:8px;
+}
+.PopupTable {
+	margin: 2% auto 5% auto; 
+	width: 95%;
+}
+.PopupTable th {
+    text-align: left;
+	font-size: 10px;
+}
+.PopupTable td {
+    border: 1px solid black;
+	border-collapse: collapse;
+	padding: 4px;
+}
+.PopupTable button {
+    background-color: var(--color-green);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: var(--button-padding);
+	font-size: var(--button-font-size);
+	font-weight: var(--font-weight-bold);
+	border-radius: var(--button-border-radius);
+}
+.PopupTable button:active {
+	color: var(--color-green);
+	background-color: white;
+}
+
+/* ----- startup spinner ----- */
+
+.pre-loader {
+    background-color: #2c3e50;
+	  opacity: 0.3;
+	  z-index: 1015; 		/* over page, but under header menu */
+	  cursor: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.pre-loader div {
+	  z-index: 1015; 		/* over page, but under header menu */
+}
+.sk-fading-circle {
+    margin: 40vh auto 50vh auto;
+    width: 10vh;
+    height: 10vh;
+    position: relative;
+}
+.sk-fading-circle .sk-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.sk-fading-circle .sk-circle:before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    height: 15%;
+    background-color: #fff;
+    border-radius: 100%;
+    -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+    animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+}
+.sk-fading-circle .sk-circle2 {
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+.sk-fading-circle .sk-circle3 {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+.sk-fading-circle .sk-circle4 {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.sk-fading-circle .sk-circle5 {
+    -webkit-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+.sk-fading-circle .sk-circle6 {
+    -webkit-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+.sk-fading-circle .sk-circle7 {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.sk-fading-circle .sk-circle8 {
+    -webkit-transform: rotate(210deg);
+    -ms-transform: rotate(210deg);
+    transform: rotate(210deg);
+}
+.sk-fading-circle .sk-circle9 {
+    -webkit-transform: rotate(240deg);
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+.sk-fading-circle .sk-circle10 {
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.sk-fading-circle .sk-circle11 {
+    -webkit-transform: rotate(300deg);
+    -ms-transform: rotate(300deg);
+    transform: rotate(300deg);
+}
+.sk-fading-circle .sk-circle12 {
+    -webkit-transform: rotate(330deg);
+    -ms-transform: rotate(330deg);
+    transform: rotate(330deg);
+}
+.sk-fading-circle .sk-circle2:before {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+.sk-fading-circle .sk-circle3:before {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+.sk-fading-circle .sk-circle4:before {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+.sk-fading-circle .sk-circle5:before {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+.sk-fading-circle .sk-circle6:before {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+.sk-fading-circle .sk-circle7:before {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+.sk-fading-circle .sk-circle8:before {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+.sk-fading-circle .sk-circle9:before {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+.sk-fading-circle .sk-circle10:before {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+.sk-fading-circle .sk-circle11:before {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+.sk-fading-circle .sk-circle12:before {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+@-webkit-keyframes sk-circleFadeDelay {
+    0%, 39%, 100% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+@keyframes sk-circleFadeDelay {
+    0%, 39%, 100% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+/* ----- Bootstrap v4.0.0 (https://getbootstrap.com) ----- */
+
+.btn {
+  display: inline-block;
+  font-weight: var(--font-weight-normal);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn:hover, .btn:focus {
+  text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn.disabled, .btn:disabled {
+  opacity: 0.65;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+.btn:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active {
+  background-image: none;
+}
+
+/* ----- status.php ----- confirmation-screen ----- */
+
+#confirmation-screen {
+	z-index: 1025; 		/* over page, including header menu */
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+	background-color: white;
+	opacity: 0.98;
+}
+
+#confirmation-content {
+	text-align: center;
+	margin: auto;
+	width: 80%;
+	background-color: white;
+	opacity: 1;
+	
+	position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+
+#countdown-clock {
+      margin: 5vh 0;
+	  font-size: 12vw;
+}
+
+.countdown-img {
+	height: 30px;
+	width: auto;
+	position: relative;
+	top: 8px;
+}
+
+.countdown-btn {
+	margin: 0.5vw;
+    padding: var(--button-padding);
+	font-size: var(--button-font-size);
+	background-color: lightgray;
+	border: 1px solid black;
+}
+
+.countdown-btn:disabled {
+	border: 1px solid transparent;
+}
+
+#pin-pad-code {
+	width: 120px;
+	margin-top: 20px;
+}
+
+.keypad {
+    display: table;
+    margin: 10px auto;
+    padding: 0;
+    width: 300px; /* not actually a static size, % in real use */
+}
+
+.keypad .key-row {
+    display: table-row;
+    width: 100%
+}
+
+.keypad .key-row .key-cell {
+    display: table-cell;
+    padding: 0.6vh 0.6vw;
+    width: 33%;
+}
+
+.keypad .key-row .key-cell button.key {
+    font-size: medium;
+    font-weight: var(--font-weight-bold);
+    height: 70px;
+    width: 100%;
+	background-color: lightgray;
+	border: 1px solid black;
+}
+
+.keypad .key-row .key-cell button .key-alt-fn {
+    font-size: small;
+    font-weight: normal;
+}
+
+@media only screen and (max-width: 480px) { 			/* iPhone [portrait + landscape] */
+	#confirmation-content {
+		width: 100%;
+	}
+	.keypad .key-row .key-cell button.key {
+		height: 14vh;
+	}
+	#confirmation-content {
+		font-size: 4vw;
+	}
+}

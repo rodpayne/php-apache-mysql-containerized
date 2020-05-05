@@ -1,0 +1,141 @@
+/* ---------- #hdm-bar is the container for the menu bar ---------- */
+
+#hdm-bar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+  height: 40px;
+  z-index: 1020;
+  background-color: black;                    /* cover notch */
+  padding-top: 20px;             							/* iOS 10    */
+  padding-top: constant(safe-area-inset-top); /* iOS 11.0  */
+  padding-top: env(safe-area-inset-top);   		/* iOS 11.2+ */
+}
+			/* ---------------------------------------------------------------- */
+			/* ---------- horizontal menu bar with dropdown submenus ---------- */
+			/* ---------------------------------------------------------------- */ ?>
+
+#hdm-title {
+  color: white; 
+  font-size: 2.3rem; 
+  margin: 0; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  margin-right: -50%; 
+  transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 640px) {
+  .hdm-title {
+    display:none;
+  }
+}
+
+/* ---------- menu list ---------- */
+
+ul {
+  text-align: left;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+/* ---------- show top level menu items in the menu bar ---------- */
+/* ---------- Home, Devices, Weather, User ----------------------- */
+
+ul li {
+  display: inline-block;
+  x-margin-right: -4px;
+  margin:0 1px; 
+  position: relative;
+  font: normal 12px/20px sans-serif;		/* min font size */
+  padding: 10px 1vw 10px 1vw;
+  background: #333;
+  color: #f2f2f2;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  --imgFilterInvert: invert(0%);
+}
+ul li.hdm-active {
+  background: var(--color-royal-blue);
+}
+@media screen and (min-width: 600px) {	
+  ul li {
+    font: normal 2vw/20px sans-serif;		/* 2vw = 12px @ 600; 16px @ 800 */
+  }
+}
+@media screen and (min-width: 800px) {
+  ul li {
+    font: normal 16px/20px sans-serif;		/* max font size */
+  }
+}
+ul li.hdm-show-dropdown {
+  background-color: #ddd;
+  color: black; 
+  --imgFilterInvert: invert(100%);
+}
+ul li img {
+  -webkit-filter: var(--imgFilterInvert);
+}
+
+/* ---------- hdm-right is a top level item that is shown in the right corner ---------- */
+
+.hdm-right {
+  float: right; 
+  text-align: right;
+}
+.hdm-right.hdm-show-dropdown {
+  text-align: left;
+  width: 146px;
+}
+
+/* ---------- dropdown items to appear under the top level item ---------- */
+
+ul li ul {
+  padding: 0;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 150px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+ul li ul li { 
+  background: #555; 
+  display: block; 
+  color: #fff;
+  text-shadow: 0 -1px 0 #000;
+  padding: var(--button-padding);
+  border: 1px solid #666;
+  list-style-position: inside;
+}
+ul li ul li:hover { 
+  color: black;
+  background: #ddd; 
+}
+ul li.hdm-show-dropdown ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}

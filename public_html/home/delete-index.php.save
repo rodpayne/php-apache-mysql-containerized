@@ -1,0 +1,55 @@
+<?php
+//-----------------------------------------------------------------------------
+//	Application Shell: HTML, CSS, and JavaScript for initial page load
+//-----------------------------------------------------------------------------
+require('../include/check_session_login.php'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Getting Home Page...</title>
+	<?php require('../include/app_standard_head.html'); ?>	
+</head>
+<body onLoad='javascript:OnPageLoad()' >
+<div class="row-container">
+	<div class="first-row">
+		<?php include('../include/header_dropdown_menu.php'); ?>
+		<?php include('../include/startup_spinner.html'); ?>
+	</div> 
+	<iframe class="second-row" id="ContentFrame" src="status.php?iframe=true"></iframe>
+</div>
+<?php
+//-----------------------------------------------------------------------------
+//	Javascript functions for the application shell:
+//-----------------------------------------------------------------------------
+?>
+<script>
+function OnPageLoad() {
+	window.addEventListener('resize', OnResize);
+	window.addEventListener('orientationchange', OnResize);
+	<?php include('../include/startup_spinner_done.js'); ?>
+	OnResize();
+}
+<?php
+//-----------------------------------------------------------------------------
+//  OnResize event is debounced - see http://bencentra.com/code/2015/02/27/optimizing-window-resize.html
+//-----------------------------------------------------------------------------
+?>
+var resizeTimeout = false;
+var resizeDelay = 100;
+
+function OnResize() {
+	clearTimeout(resizeTimeout);
+	resizeTimeout = setTimeout(ActualOnResize, resizeDelay);
+}
+
+function ActualOnResize() {
+
+}
+</script>
+<style>
+body, html {width: 100%; height: 100%; margin: 0; padding: 0}
+.row-container {display: flex; width: 100%; height: 100%; flex-direction: column; overflow: hidden;}
+.first-row {background-color: lime; }
+.second-row { flex-grow: 1; border: none; margin: 0; padding: 0; }
+</body>
+</html>
