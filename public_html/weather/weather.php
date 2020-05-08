@@ -1,4 +1,4 @@
-﻿<?php require('../include/check_session_login.php'); ?>
+<?php require('../include/check_session_login.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -9,6 +9,7 @@ services:
       - backend
     volumes:
       - ${PROJECT_ROOT}/:/var/www/html/
+      - ${PROJECT_ROOT}/../MySQL/:/var/www/MySQL/
     container_name: lamp-php
   apache:
     build:
@@ -22,19 +23,17 @@ services:
       - frontend
       - backend
     ports:
-      - "8081:80"
+      - "80:80"
     volumes:
       - ${PROJECT_ROOT}/:/var/www/html/
     container_name: lamp-apache
   mysql:
     image: hypriot/rpi-mysql:latest
-#    build:
-#      context: './mysql/'
     restart: always
     ports:
-      - "33060:3306"
+      - "3306:3306"
     volumes:
-      - data:/var/lib/mysql
+      - lamp-data:/var/lib/mysql
     networks:
       - backend
     environment:
@@ -47,4 +46,4 @@ networks:
   frontend:
   backend:
 volumes:
-    data:
+    lamp-data:

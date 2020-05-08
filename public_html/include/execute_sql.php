@@ -11,13 +11,13 @@
 			global $mysqli;
 
 			# 	Open the database:
-		
-			$mysqli = new mysqli("localhost", $static_config['DB']['username'], $static_config['DB']['password'], $static_config['DB']['database']);
+
+			$mysqli = new mysqli($static_config['DB']['host'], $static_config['DB']['username'], $static_config['DB']['password'], $static_config['DB']['database']); # , $static_config['DB']['port']);
+#			$mysqli = new mysqli('172.19.54.7','webserver','autoserv3833','homeautomation');
 			if ($mysqli->connect_errno) {
 				echo "Error: Failed to make a MySQL connection, here is why: <br>";
 				echo "Errno: " . $mysqli->connect_errno . "<br>";
 				echo "Error: " . $mysqli->connect_error . "<br>";
-				
 	#			return array(FALSE,0,"Application Error: Failed to make a database connection [Error " . $mysqli->connect_errno . ": " . $mysqli->connect_error . "]");
 	#			exit;
 			}
