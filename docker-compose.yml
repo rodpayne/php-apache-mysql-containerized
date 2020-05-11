@@ -5,6 +5,7 @@ services:
       context: './php/'
       args:
        PHP_VERSION: ${PHP_VERSION}
+    restart: always
     networks:
       - backend
     volumes:
@@ -19,6 +20,7 @@ services:
     depends_on:
       - php
       - mysql
+    restart: always
     networks:
       - frontend
       - backend
@@ -35,6 +37,7 @@ services:
     volumes:
       - lamp-data:/var/lib/mysql
       - ${PROJECT_ROOT}/../MySQL/:/var/www/MySQL/
+    restart: always
     networks:
       - backend
     environment:
