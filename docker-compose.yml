@@ -34,6 +34,7 @@ services:
       - "3306:3306"
     volumes:
       - lamp-data:/var/lib/mysql
+      - ${PROJECT_ROOT}/../MySQL/:/var/www/MySQL/
     networks:
       - backend
     environment:
